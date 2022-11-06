@@ -1,6 +1,13 @@
 import { Link } from "gatsby";
 import React from "react";
-import { container, content, footer, header } from "../../styles/layout.css";
+import {
+  container,
+  content,
+  footer,
+  header,
+  navbar,
+  pageLinks,
+} from "./layout.css";
 
 export const PageLayout: React.FC<React.PropsWithChildren<{}>> = ({
   children,
@@ -8,10 +15,17 @@ export const PageLayout: React.FC<React.PropsWithChildren<{}>> = ({
   return (
     <div className={container}>
       <header className={header}>
-        <Link to="/">Home</Link>
-        <div>
-          <Link to="gallery">Gallery</Link>
-        </div>
+        <nav className={navbar}>
+          <Link to="/">Home</Link>
+          <ul className={pageLinks}>
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+            <li>
+              <Link to="/recipes">Recipes</Link>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main className={content}>{children}</main>
       <footer className={footer}>

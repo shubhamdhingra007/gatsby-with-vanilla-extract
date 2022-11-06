@@ -2,6 +2,7 @@ import { graphql, HeadFC, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import * as React from "react";
 import { PageLayout } from "../components/layout/layout";
+import { gallery, image } from "../styles/gallery.css";
 
 export const query = graphql`
   query TypegenGallery {
@@ -30,13 +31,15 @@ const GalleryPage = (props: PageProps<Queries.TypegenGalleryQuery>) => {
   return (
     <PageLayout>
       <h1>Simple Image Gallery</h1>
-      <section style={{ display: "flex", flexWrap: "wrap", gap: "2rem" }}>
+      <section className={gallery}>
         {imgNodes.map((u, i) => {
+          if (!u.childImageSharp) return null;
           return (
             <article key={i}>
               <GatsbyImage
                 image={u.childImageSharp?.gatsbyImageData}
                 alt={u.name}
+                className={image}
               />
               <p>{u.name}</p>
             </article>
