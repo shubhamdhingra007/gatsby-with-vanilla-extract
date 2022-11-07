@@ -15,7 +15,10 @@
 
 3. **Notes**
 
-    favicon.ico -> generated from <https://favicon.io>
+    - favicon.ico -> generated from <https://favicon.io>
+    - Hosted on:
+        - Gatsby cloud - <https://recipe.gatsbyjs.io>
+        - Netlify - <https://gatsby-site-recipes.netlify.app/>
 
 4. **Gatsby Learn more**
 
