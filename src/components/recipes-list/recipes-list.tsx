@@ -9,14 +9,30 @@ import {
   cardLink,
   cardMeta,
   container,
-} from "./all-recipes.css";
+} from "./recipes-list.css";
 
-export const AllRecipes: React.FC<{
-  recipes: Queries.TypegenAllRecipesQuery;
-}> = ({ recipes }) => {
+type Recipe = {
+  title: string | null;
+  id: string;
+  prepTime: number | null;
+  cookTime: number | null;
+  content: {
+    tags: Array<string | null> | null;
+  } | null;
+  image: {
+    gatsbyImageData: import("gatsby-plugin-image").IGatsbyImageData | null;
+  } | null;
+};
+
+export const RecipesList: React.FC<{
+  recipes: Recipe[];
+}> = ({ recipes = [] }) => {
+  if (!recipes.length) {
+    return null;
+  }
   return (
     <div className={container}>
-      {recipes.allContentfulRecipe.nodes.map((u) => (
+      {recipes.map((u) => (
         <div key={u.id} className={card}>
           {!!u.image?.gatsbyImageData && (
             <GatsbyImage

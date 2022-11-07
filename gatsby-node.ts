@@ -1,5 +1,9 @@
 import type { GatsbyNode } from "gatsby";
 
+import path from "path";
+import slugify from "slugify";
+// const path = require("path");
+
 type Person = {
   first_name: string;
   last_name: string;
@@ -43,4 +47,36 @@ export const sourceNodes: GatsbyNode["sourceNodes"] = ({
       },
     });
   });
+};
+
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+}) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    query TypegenTag {
+      allContentfulRecipe(sort: { fields: title, order: ASC }) {
+        nodes {
+          content {
+            tags
+          }
+        }
+      }
+    }
+  `);
+
+  (result.data as unknown as any).allContentfulRecipe.nodes.forEach(
+    (recipe: any) => {
+      recipe.content.tags.forEach((tag: string) => {
+        createPage({
+          path: `/recipes/tags/${slugify(tag, { lower: true })}`,
+          component: path.resolve("src/templates/tag-template.tsx"),
+          context: {
+            tag,
+          },
+        });
+      });
+    }
+  );
 };

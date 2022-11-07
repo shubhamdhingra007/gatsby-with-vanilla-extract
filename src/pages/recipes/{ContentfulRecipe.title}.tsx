@@ -2,6 +2,7 @@ import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import React from "react";
 import { BsClock, BsClockHistory, BsPeople } from "react-icons/bs";
+import slugify from "slugify";
 import { PageLayout } from "../../components/layout/layout";
 import {
   hero,
@@ -61,7 +62,11 @@ const RecipeTemplate = (props: PageProps<Queries.TypegenRecipeDetailQuery>) => {
             <>
               Tags:{" "}
               {tags.map((tag) => (
-                <Link to={`/recipes/tags/${tag}`} key={tag} className={tagItem}>
+                <Link
+                  to={`/recipes/tags/${slugify(tag || "", { lower: true })}`}
+                  key={tag}
+                  className={tagItem}
+                >
                   {tag}
                 </Link>
               ))}

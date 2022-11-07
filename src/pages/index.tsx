@@ -1,4 +1,5 @@
 import { graphql, HeadFC, PageProps } from "gatsby";
+import "normalize.css";
 import * as React from "react";
 import { PageLayout } from "../components/layout/layout";
 import { useSiteMeta } from "../hooks/use-site-meta";

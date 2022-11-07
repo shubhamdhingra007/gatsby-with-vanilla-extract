@@ -20,6 +20,7 @@ export const card = style({
 export const cardImg = style({
   borderTopRightRadius: cardRadius,
   borderTopLeftRadius: cardRadius,
+  height: 250,
 });
 
 export const cardContent = style({

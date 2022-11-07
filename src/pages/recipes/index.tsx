@@ -1,7 +1,7 @@
 import { graphql, HeadFC, PageProps } from "gatsby";
 import * as React from "react";
-import { AllRecipes } from "../../components/all-recipes/all-recipes";
 import { PageLayout } from "../../components/layout/layout";
+import { RecipesList } from "../../components/recipes-list/recipes-list";
 
 export const query = graphql`
   query TypegenAllRecipes {
@@ -26,7 +26,9 @@ const GalleryPage = (props: PageProps<Queries.TypegenAllRecipesQuery>) => {
   return (
     <PageLayout>
       <h1>All recipes</h1>
-      <AllRecipes recipes={props.data} />
+      <RecipesList
+        recipes={props.data.allContentfulRecipe.nodes as unknown as any}
+      />
     </PageLayout>
   );
 };

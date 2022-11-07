@@ -26,7 +26,6 @@ export const query = graphql`
 `;
 
 const GalleryPage = (props: PageProps<Queries.TypegenGalleryQuery>) => {
-  console.log("props >>>", props);
   const imgNodes = props.data.allFile.nodes;
   return (
     <PageLayout>

@@ -33,6 +33,23 @@ const config: GatsbyConfig = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Montserrat",
+              variants: ["300", "400", "500"],
+            },
+            {
+              family: "Inconsolata",
+              variants: ["300", "400", "500"],
+            },
+          ],
+        },
+      },
+    },
   ],
 };
 
