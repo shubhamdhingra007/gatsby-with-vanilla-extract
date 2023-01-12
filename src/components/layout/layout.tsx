@@ -6,7 +6,7 @@ import {
   footer,
   header,
   navbar,
-  pageLinks,
+  pageLinks
 } from "./layout.css";
 
 export const PageLayout: React.FC<React.PropsWithChildren<{}>> = ({
@@ -18,6 +18,9 @@ export const PageLayout: React.FC<React.PropsWithChildren<{}>> = ({
         <nav className={navbar}>
           <Link to="/">Home</Link>
           <ul className={pageLinks}>
+            <li>
+              <Link to="/mdx">MDXs</Link>
+            </li>
             <li>
               <Link to="/gallery">Gallery</Link>
             </li>

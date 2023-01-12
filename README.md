@@ -11,11 +11,12 @@
 
 2. **Open the code and start customizing!**
 
-    Your site is now running at <http://localhost:8000>!
+    Your site is now running at <http://localhost:8000>
 
 3. **Notes**
 
-    - favicon.ico -> generated from <https://favicon.io>
+    - favicon.ico => generated from <https://favicon.io>
+    - form => <https://formspree.io/>
     - Hosted on:
         - Gatsby cloud - <https://recipe.gatsbyjs.io>
         - Netlify - <https://gatsby-site-recipes.netlify.app/>

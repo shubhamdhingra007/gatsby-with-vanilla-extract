@@ -29,6 +29,13 @@ globalStyle("a", {
   color: "inherit",
 });
 
+globalStyle("blockquote", {
+  margin: 0,
+  padding: "2px 20px",
+  background: "#44257d24",
+  borderLeft: `4px solid ${primaryColor}`,
+});
+
 // globalStyle("h1", {
 //   marginTop: "20px",
 //   marginBottom: "24px",
